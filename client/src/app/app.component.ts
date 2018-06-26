@@ -14,17 +14,19 @@ export class AppComponent implements OnInit, OnDestroy {
   speechObj:any;
   pic:any;  
   allpics:any;
-  actions = [ 'move left','move right'] 
+  actions = [ 'left','right'] 
 
     constructor(private speechRecognitionService: SpeechRecognitionService,private _httpService: HttpService) {
         this.showSearchButton = true;
         this.speechData = "";
-        this.speechObj = {'name':"",'imgurl':""}
+        this.speechObj = {'name':"",'imgurl':"",position:100}
+        this.pic = ""
     }
 
     ngOnInit() {
         console.log("hello")
         // this.displayObj()
+        // this.createObject()
         this.displayAll()
     }
 
@@ -43,13 +45,19 @@ export class AppComponent implements OnInit, OnDestroy {
                 this.speechObj.name = this.speechData
                 console.log("Component",this.speechData )
 
-                // if(this.pic){
-                //     for(var i = 0; i < this.actions.length; i++){
-                //         if(this.actions[i] == this.speechData){
-       
-                //         }
-                //     }
-                // }
+                if(this.pic && this.actions.includes(this.speechData)){
+                    // for(var i = 0; i < this.actions.length; i++){
+                        if(this.speechData == 'right'){
+                            this.pic.position += 125;
+                            console.log("Moving right",this.pic.position)
+                        }
+                        if(this.speechData == 'left'){
+                            this.pic.position -= 125;
+                            console.log("Moving left",this.pic.position)
+                        }    
+    
+                }
+                else{
                 let observable = this._httpService.pickObject(this.speechObj)
                 observable.subscribe(data => {
                   if(data['errors']){
@@ -60,6 +68,7 @@ export class AppComponent implements OnInit, OnDestroy {
                     this.pic = data[0]
                   }
                 })
+                }
             },
             //errror
             (err) => {
@@ -117,6 +126,23 @@ export class AppComponent implements OnInit, OnDestroy {
 //     console.log("Recognition deactivated", this.speechRecognitionService)
 //     this.speechRecognitionService = s
 //   }
+
+
+createObject(){
+    this.speechObj.name = "Orange"
+    this.speechObj.imgurl = "http://www.atozpictures.com/admin/uploads/2015/07/orange-photos.jpg"
+    // this.speechObj.position = 100
+    let observable = this._httpService.addObject(this.speechObj)
+    observable.subscribe(data => {
+      if(data['errors']){
+        console.log("error",data)
+      }
+      else{
+        console.log("######",data);
+        // this.pic = data[0]
+      }
+    })
+}
 
 
 }

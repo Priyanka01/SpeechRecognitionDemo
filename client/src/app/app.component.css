@@ -1,5 +1,10 @@
 img {
-    width: 100px;
+    /* width: 100px; */
     height: 100px;
+    border: 1px solid black;
+}
+
+.picked_container {
+    width: 800px;
     border: 1px solid black;
 }

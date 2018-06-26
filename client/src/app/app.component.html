@@ -34,12 +34,14 @@
 
 <div class="all_pics_container" *ngFor="let img of allpics">
     <div *ngIf="img.imgurl">
+        <!-- <img style='margin-left:40px' src={{img.imgurl}} alt={{img.name}} border=15px> -->
         <img src={{img.imgurl}} alt={{img.name}}>
     </div>
 </div>
 
 
-<div *ngIf="pic">
+<div *ngIf="pic" class="picked_container">
+    {{pic.position}}
     <h2>Picked</h2>
-    <img src={{pic.imgurl}} alt={{pic.name}}>
+    <img [style.margin-left.px]=pic.position src={{pic.imgurl}} alt={{pic.name}}>
 </div>

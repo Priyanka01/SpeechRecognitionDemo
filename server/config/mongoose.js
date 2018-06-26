@@ -31,7 +31,7 @@ mongoose.connect('mongodb://localhost/SpeechDB', function(err) {
 const PictureSchema = new mongoose.Schema({
     name: { type: String, required: true },
     imgurl: String,
-    position: Number,
+    position: { type: Number, default: 100 }
 }, { timestamps: true })
 
 
