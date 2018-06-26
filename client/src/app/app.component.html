@@ -20,11 +20,26 @@
                     <div class="text-center">
                         <button class="btn btn-info btn-fill btn-wd" name="searchImg" id="searchImg" (click)="activateSpeechSearch()">
                         Enable Speech Search
-                    </button>
+                        </button>
+                        <!-- <button class="btn btn-info btn-fill btn-wd" name="removeImg" id="removeImg" (click)="deactivateSpeechSearch()">
+                        Disable Speech Search
+                        </button> -->
                     </div>
                     <br />
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<div class="all_pics_container" *ngFor="let img of allpics">
+    <div *ngIf="img.imgurl">
+        <img src={{img.imgurl}} alt={{img.name}}>
+    </div>
+</div>
+
+
+<div *ngIf="pic">
+    <h2>Picked</h2>
+    <img src={{pic.imgurl}} alt={{pic.name}}>
 </div>
