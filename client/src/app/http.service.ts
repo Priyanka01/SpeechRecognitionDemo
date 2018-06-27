@@ -33,6 +33,7 @@ export class HttpService {
       const synth = window.speechSynthesis;
   
       var voices = synth.getVoices();
+      this.voices = voices
       console.log("***",voices)
   
       const utterance = new SpeechSynthesisUtterance();
@@ -45,9 +46,18 @@ export class HttpService {
 
   onSubmit(text):void {
     this.speakthis = text
-    // event.preventDefault();
-    // console.log(`Click event is working with event: ${event}`);
-    this.selectVoice()
+    if(window.speechSynthesis && this.voices.length > 0) {
+      console.log("In if")
+      const utterance = new SpeechSynthesisUtterance();
+      utterance.voice = this.voices[0];
+      console.log(this.voices[0].lang)  
+      utterance.text = this.speakthis 
+      window.speechSynthesis.speak(utterance)
+    }
+    else{
+      this.selectVoice()
+    }
+    
   }
 
 

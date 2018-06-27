@@ -51,11 +51,12 @@ export class AppComponent implements OnInit, OnDestroy {
                         if(this.speechData == 'right'){
                             this.pic.position += 125;
                             console.log("Moving right",this.pic.position)
-                            
+                            this._httpService.onSubmit("Moving right") 
                         }
                         if(this.speechData == 'left'){
                             this.pic.position -= 125;
                             console.log("Moving left",this.pic.position)
+                            this._httpService.onSubmit("Moving left")
                         }   
                         // if(this.speechData == 'top'){
                         //     this.pic.position += 30;
