@@ -8,10 +8,12 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpeechRecognitionService } from 'speech-recognition.service';
+import { SpeechsynComponent } from './speechsyn/speechsyn.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SpeechsynComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +23,7 @@ import { SpeechRecognitionService } from 'speech-recognition.service';
   ],
   providers: [HttpService,
     SpeechRecognitionService],
-  bootstrap: [AppComponent]
+    
+  bootstrap: [AppComponent,SpeechsynComponent]
 })
 export class AppModule { }

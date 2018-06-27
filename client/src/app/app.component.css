@@ -6,5 +6,6 @@ img {
 
 .picked_container {
     width: 800px;
+    height: 500px;
     border: 1px solid black;
 }

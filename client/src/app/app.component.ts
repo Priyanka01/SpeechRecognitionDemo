@@ -1,5 +1,6 @@
 import { Component,OnInit,OnDestroy } from '@angular/core';
 import { SpeechRecognitionService } from 'speech-recognition.service';
+
 import { HttpService } from './http.service';
 // import { SpeechRecognitionService } from '/client/speech-recognition.service';
 
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit, OnDestroy {
   speechObj:any;
   pic:any;  
   allpics:any;
-  actions = [ 'left','right'] 
+  actions = [ 'left','right','top','bottom'] 
 
     constructor(private speechRecognitionService: SpeechRecognitionService,private _httpService: HttpService) {
         this.showSearchButton = true;
@@ -54,7 +55,11 @@ export class AppComponent implements OnInit, OnDestroy {
                         if(this.speechData == 'left'){
                             this.pic.position -= 125;
                             console.log("Moving left",this.pic.position)
-                        }    
+                        }   
+                        // if(this.speechData == 'top'){
+                        //     this.pic.position += 30;
+                        //     console.log("Moving top",this.pic.position)
+                        // } 
     
                 }
                 else{
@@ -83,6 +88,7 @@ export class AppComponent implements OnInit, OnDestroy {
                 this.showSearchButton = true;
                 console.log("--complete--");
                 this.activateSpeechSearch();
+            
             });
     }
 
