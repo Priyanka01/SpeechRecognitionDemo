@@ -51,6 +51,7 @@ export class AppComponent implements OnInit, OnDestroy {
                         if(this.speechData == 'right'){
                             this.pic.position += 125;
                             console.log("Moving right",this.pic.position)
+                            
                         }
                         if(this.speechData == 'left'){
                             this.pic.position -= 125;
@@ -63,6 +64,7 @@ export class AppComponent implements OnInit, OnDestroy {
     
                 }
                 else{
+                this._httpService.onSubmit("Getting"+value)    
                 let observable = this._httpService.pickObject(this.speechObj)
                 observable.subscribe(data => {
                   if(data['errors']){

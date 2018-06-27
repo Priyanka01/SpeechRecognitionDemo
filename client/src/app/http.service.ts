@@ -5,7 +5,8 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HttpService {
-
+  voices = [];
+  speakthis : any;
   constructor(private _http: HttpClient) { }
 
   addObject(speechDataObj){
@@ -22,6 +23,33 @@ export class HttpService {
     console.log("getAllPictures")
     return this._http.get('/displayAll');
   }
+
+
+  selectVoice() {
+    console.log("IN SELECT VOICE",this.speakthis)
+    const awaitVoices = new Promise(resolve=> 
+      window.speechSynthesis.onvoiceschanged = resolve)  
+    .then(()=> {
+      const synth = window.speechSynthesis;
+  
+      var voices = synth.getVoices();
+      console.log("***",voices)
+  
+      const utterance = new SpeechSynthesisUtterance();
+      utterance.voice = voices[0];
+      console.log(voices[0].lang)  
+      utterance.text = this.speakthis 
+      synth.speak(utterance)
+    });
+  }
+
+  onSubmit(text):void {
+    this.speakthis = text
+    // event.preventDefault();
+    // console.log(`Click event is working with event: ${event}`);
+    this.selectVoice()
+  }
+
 
   
 

@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 // import { SpeechSynthesis } from '@angular-devkit/build-angular';
 // import { SpeechSynthesisUtterance } from '@angular/core';
 
-interface IWindow extends Window {
-  SpeechSynthesisUtterance: any;
-  SpeechSynthesis: any;
-}
+// interface IWindow extends Window {
+//   SpeechSynthesisUtterance: any;
+//   SpeechSynthesis: any;
+// }
 
 @Component({
   selector: 'app-speechsyn',
@@ -26,15 +26,14 @@ voices = [];
 speakthis : any;
 
   constructor(private _httpService: HttpService,private _router: Router) {
-    const {SpeechSynthesisUtterance}: IWindow = <IWindow>window;
-    const {SpeechSynthesis}: IWindow = <IWindow>window;
+    // const {SpeechSynthesisUtterance}: IWindow = <IWindow>window;
+    // const {SpeechSynthesis}: IWindow = <IWindow>window;
    }
 
   ngOnInit() {
   }
 
   selectVoice() {
-
     console.log("IN SELECT VOICE",this.speakthis)
     const awaitVoices = new Promise(resolve=> 
       window.speechSynthesis.onvoiceschanged = resolve)  
@@ -50,10 +49,11 @@ speakthis : any;
       utterance.text = this.speakthis 
       synth.speak(utterance)
     });
+    
   }
 
   onSubmit(event:any):void {
-    // event.preventDefault();
+    event.preventDefault();
     console.log(`Click event is working with event: ${event}`);
     this.selectVoice()
   }
