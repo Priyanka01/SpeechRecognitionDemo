@@ -1,53 +1,28 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-12 col-md-12">
-            <div class="card">
-                <div class="header">
-                    <h4 class="title">&nbsp;&nbsp; Web Speech API in Angular2</h4>
-                </div>
-                <div class="content">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
-                            <div class="form-group">
-                                <label></label>
-                                <input type="text" class="form-control border-input" name="speechData" id="speechData" value="" placeholder="Click below button and then say something!!!" [(ngModel)]="speechData">
-                            </div>
-                        </div>
-                        <div class="col-md-2"></div>
-                    </div>
-                    <br />
-                    <div class="text-center">
-                        <button class="btn btn-info btn-fill btn-wd" name="searchImg" id="searchImg" (click)="activateSpeechSearch()">
-                        Enable Speech Search
-                        </button>
-                        <!-- <button class="btn btn-info btn-fill btn-wd" name="removeImg" id="removeImg" (click)="deactivateSpeechSearch()">
-                        Disable Speech Search
-                        </button> -->
-                    </div>
-                    <br />
-                </div>
-            </div>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src='https://www.bing.com/th?id=OIP.zG1yrXdozHvH_0slHUuzKQHaGW&w=234&h=195&c=7&o=5&pid=1.7' width="30" height="30" alt="icon"></a>
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/texttospeech']">Voice</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/rotate']">3D</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/mapping2d']">2D-D3</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/mapping3d']">3D-D3</a>
+            </li> -->
+        </ul>
     </div>
-</div>
-
-<div class="all_pics_container" *ngFor="let img of allpics">
-    <div *ngIf="img.imgurl">
-        <!-- <img style='margin-left:40px' src={{img.imgurl}} alt={{img.name}} border=15px> -->
-        <img src={{img.imgurl}} alt={{img.name}}>
-    </div>
-</div>
-
-
-<div *ngIf="pic" class="picked_container">
-    {{pic.position}}
-    <h2>Picked</h2>
-    <img [style.margin-left.px]=pic.position src={{pic.imgurl}} alt={{pic.name}}>
-</div>
-
-
-<a [routerLink]="['/texttospeech']">Synthesis</a>
-<a [routerLink]="['/rotate']">Rotate Earth</a>
-<!-- <app-speechsyn></app-speechsyn> -->
+</nav>
 <router-outlet></router-outlet>

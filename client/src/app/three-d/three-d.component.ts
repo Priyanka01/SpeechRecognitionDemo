@@ -15,14 +15,22 @@ export class ThreeDComponent implements OnInit {
   static material : any; 
   static mesh : any;
 
+  show: boolean = true;
+  expr:any;
+  static exp = false;
   constructor() { 
-
+   
   }
 
   ngOnInit() {
     ThreeDComponent.init();
-    ThreeDComponent.animate();
+    ThreeDComponent.animate();   
   }
+
+  // rotateOnClick(){
+
+  //   this.expr = true;
+  // }
 
  static animate() {
     requestAnimationFrame(ThreeDComponent.animate);
@@ -38,7 +46,7 @@ export class ThreeDComponent implements OnInit {
 
       ThreeDComponent.scene = new THREE.Scene();
 
-      ThreeDComponent.geometry = new THREE.BoxGeometry( 0.2, 0.2, 0.2 );
+      ThreeDComponent.geometry = new THREE.BoxGeometry( 0.6, 0.6, 0.6 );
       ThreeDComponent.material = new THREE.MeshNormalMaterial();
 
       ThreeDComponent.mesh = new THREE.Mesh( ThreeDComponent.geometry, ThreeDComponent.material );
@@ -48,4 +56,8 @@ export class ThreeDComponent implements OnInit {
       ThreeDComponent.renderer.setSize( window.innerWidth, window.innerHeight );
       document.body.appendChild( ThreeDComponent.renderer.domElement );
 }
+
+
+  rotateEarth(){
+  }
 }

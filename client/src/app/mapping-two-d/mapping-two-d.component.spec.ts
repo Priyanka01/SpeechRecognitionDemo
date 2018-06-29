@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpeechsynComponent } from './speechsyn.component';
+import { MappingTwoDComponent } from './mapping-two-d.component';
 
-describe('SpeechsynComponent', () => {
-  let component: SpeechsynComponent;
-  let fixture: ComponentFixture<SpeechsynComponent>;
+describe('MappingTwoDComponent', () => {
+  let component: MappingTwoDComponent;
+  let fixture: ComponentFixture<MappingTwoDComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpeechsynComponent ]
+      declarations: [ MappingTwoDComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpeechsynComponent);
+    fixture = TestBed.createComponent(MappingTwoDComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -21,7 +21,7 @@ export class SpeechRecognitionService {
             const { webkitSpeechRecognition }: IWindow = <IWindow>window;
             this.speechRecognition = new webkitSpeechRecognition();
             this.speechRecognition.continuous = true;
-            //this.speechRecognition.interimResults = true;
+            // this.speechRecognition.interimResults = true;
             this.speechRecognition.lang = 'en-us';
             this.speechRecognition.maxAlternatives = 1;
 
@@ -59,9 +59,9 @@ export class SpeechRecognitionService {
     }
 
     DestroySpeechObject() {
-        if (this.speechRecognition)
+        // if (this.speechRecognition)
         console.log("DestroySpeechObject",this.speechRecognition)
-           return this.speechRecognition.stop();
+       this.speechRecognition.stop();
     }
 
 }

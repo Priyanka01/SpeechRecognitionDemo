@@ -1,4 +1,4 @@
-body,
+/* body,
 html {
     margin: 0;
 }
@@ -78,4 +78,60 @@ label {
 
 .controls button {
     padding: 10px;
+} */
+
+.main_container {
+    background-image: url('https://www.bing.com/th?id=OIP.M17AWB41_prbkf5Qgj9IegHaD1&w=300&h=155&c=7&o=5&pid=1.7');
+    width: 900px;
+    height: 1000px;
+    margin: auto;
+}
+
+.middle_container {
+    width: 900px;
+}
+
+.picked_container {
+    width: 900px;
+    height: 300px;
+    margin-top: 30px;
+}
+
+.picked_object_conatainer {
+    height: 200px;
+    width: 200px;
+    border-radius: 55px;
+}
+
+.display_all_images_container {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    padding: 35px;
+}
+
+.all_img {
+    height: 120px;
+    width: 120px;
+    border-radius: 30px;
+}
+
+.all_pics_container {
+    height: 200px;
+    display: inline-block;
+    width: 200px;
+    margin: 50px;
+    /* background-color: white; */
+}
+
+.mic_container {
+    background-image: url("https://www.google.com/intl/en/chrome/assets/common/images/content/mic.gif");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.animate_mic_container {
+    background-image: url("https://www.google.com/intl/en/chrome/assets/common/images/content/mic-animate.gif");
+    background-repeat: no-repeat;
+    background-position: right;
 }

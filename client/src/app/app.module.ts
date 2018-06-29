@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 import { SpeechRecognitionService } from 'speech-recognition.service';
 import { SpeechsynComponent } from './speechsyn/speechsyn.component';
 import { ThreeDComponent } from './three-d/three-d.component';
+import { MappingTwoDComponent } from './mapping-two-d/mapping-two-d.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SpeechsynComponent,
-    ThreeDComponent
+    ThreeDComponent,
+    MappingTwoDComponent
   ],
   imports: [
     BrowserModule,

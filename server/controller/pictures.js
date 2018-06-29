@@ -28,7 +28,7 @@ module.exports = {
                 console.log("Error", err)
                 res.json(err)
             } else {
-                console.log("***************One Picture")
+                console.log("***************One Picture", data)
                 res.json(data)
             }
         })
