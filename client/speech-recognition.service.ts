@@ -1,5 +1,4 @@
 ﻿import { Injectable, NgZone } from '@angular/core';
-// import { Observable } from 'rxjs/Rx';
 import * as _ from "lodash";
 import { Observable } from 'rxjs/internal/Observable';
 
@@ -14,7 +13,6 @@ export class SpeechRecognitionService {
 
     constructor(private zone: NgZone) {
     }
-
     record(): Observable<string> {
 
         return Observable.create(observer => {
@@ -22,7 +20,7 @@ export class SpeechRecognitionService {
             this.speechRecognition = new webkitSpeechRecognition();
             this.speechRecognition.continuous = true;
             // this.speechRecognition.interimResults = true;
-            this.speechRecognition.lang = 'en-us';
+            this.speechRecognition.lang = 'en-in';
             this.speechRecognition.maxAlternatives = 1;
 
             this.speechRecognition.onresult = speech => {
@@ -59,9 +57,7 @@ export class SpeechRecognitionService {
     }
 
     DestroySpeechObject() {
-        // if (this.speechRecognition)
         console.log("DestroySpeechObject",this.speechRecognition)
-       this.speechRecognition.stop();
+        this.speechRecognition.stop();
     }
-
 }

@@ -1,52 +1,9 @@
 
-// export class SpeechsynComponent implements OnInit {
-
-// //The speechSynthesis read-only property of the 
-// // Window object returns a SpeechSynthesis object, which is the entry point into using Web Speech API speech synthesis functionality.  
-// //  synth = window.speechSynthesis;
-
-// voices = [];
-// speakthis : any;
-
-//   constructor(private _httpService: HttpService,private _router: Router) {
-//    }
-
-//   ngOnInit() {
-//   }
-
-//   selectVoice() {
-//     console.log("IN SELECT VOICE",this.speakthis)
-//     const awaitVoices = new Promise(resolve=> 
-//       window.speechSynthesis.onvoiceschanged = resolve)  
-//     .then(()=> {
-//       const synth = window.speechSynthesis;
-  
-//       var voices = synth.getVoices();
-//       console.log("***",voices)
-  
-//       const utterance = new SpeechSynthesisUtterance();
-//       utterance.voice = voices[0];
-//       console.log(voices[0].lang)  
-//       utterance.text = this.speakthis 
-//       synth.speak(utterance)
-//     });
-    
-//   }
-
-//   onSubmit(event:any):void {
-//     event.preventDefault();
-//     console.log(`Click event is working with event: ${event}`);
-//     this.selectVoice()
-//   }
-// }
-
 import { Component,OnInit,OnDestroy } from '@angular/core';
 import { SpeechRecognitionService } from 'speech-recognition.service';
 import { Router } from '@angular/router';
 
 import { HttpService } from '../http.service';
-// import { runInThisContext } from 'vm';
-// import { SpeechRecognitionService } from '/client/speech-recognition.service';
 
 @Component({
  selector: 'app-speechsyn',
@@ -70,8 +27,6 @@ export class SpeechsynComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-
-        // this.displayObj()
         // this.createObject()
         this.displayAll()
     }
@@ -82,7 +37,6 @@ export class SpeechsynComponent implements OnInit, OnDestroy {
 
     activateSpeechSearch(): void {
         // this.showSearchButton = false;
-
         this.speechRecognitionService.record()
             .subscribe(
             //listener
@@ -116,6 +70,7 @@ export class SpeechsynComponent implements OnInit, OnDestroy {
                   }
                 })
                 }
+                this.activateSpeechSearch();
             },
             //errror
             (err) => {

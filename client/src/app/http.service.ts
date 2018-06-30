@@ -24,7 +24,6 @@ export class HttpService {
     return this._http.get('/displayAll');
   }
 
-
   selectVoice() {
     console.log("IN SELECT VOICE",this.speakthis)
     const awaitVoices = new Promise(resolve=> 
@@ -56,11 +55,6 @@ export class HttpService {
     }
     else{
       this.selectVoice()
-    }
-    
+    } 
   }
-
-
-  
-
 }
