@@ -16,9 +16,9 @@ Tools used:
 #Front-end: HTML,CSS  
 
 Workflow:
-
   After loading objects will be displayed which can be moved or made bigger using voice command. Also, speech synthesis 
   is demonstrated while maneuvering the objects.
-  
+
+  *Work-in-progress : Cleaning and optimizing the code, removing three-d section.
   
 
